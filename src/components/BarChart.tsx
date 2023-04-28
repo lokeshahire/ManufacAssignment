@@ -2,6 +2,19 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import wineData from "./wineData.json";
 
+interface ChartProps {
+  option: any;
+}
+
+const Chart: React.FC<ChartProps> = ({ option }) => {
+  return (
+    <ReactECharts
+      option={option}
+      style={{ height: "100%", width: "100%", minHeight: 300, minWidth: 300 }}
+    />
+  );
+};
+
 export const BarChart: React.FC = () => {
   const alcoholCategories = Array.from(
     new Set(wineData.map((d: any) => d.Alcohol))

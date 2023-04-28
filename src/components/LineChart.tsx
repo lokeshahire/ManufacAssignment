@@ -1,18 +1,36 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 import wineData from "./wineData.json";
+
+interface ChartProps {
+  option: any;
+}
+
+const Chart: React.FC<ChartProps> = ({ option }) => {
+  return (
+    <ReactECharts
+      option={option}
+      style={{ height: "100%", width: "100%", minHeight: 300, minWidth: 300 }}
+    />
+  );
+};
+
 export const LineChart: React.FC = () => {
   const options = {
     xAxis: {
       name: "Flavanoids",
+      type: "category",
+      data: wineData.map((e) => e.Flavanoids),
     },
     yAxis: {
       name: "Ash",
+      type: "value",
+      data: wineData.map((e) => e.Ash),
     },
     series: [
       {
+        data: wineData.map((e) => e.Ash),
         type: "line",
-        data: wineData.map((d: any) => [d.Flavanoids, d.Ash]),
       },
     ],
   };
