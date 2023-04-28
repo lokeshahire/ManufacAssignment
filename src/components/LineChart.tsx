@@ -17,6 +17,7 @@ const Chart: React.FC<ChartProps> = ({ option }) => {
 
 export const LineChart: React.FC = () => {
   const option = {
+    grid: { top: 30, right: 80, bottom: 24, left: 36 },
     xAxis: {
       name: "Flavanoids",
       type: "category",

@@ -26,6 +26,8 @@ export const BarChart: React.FC = () => {
   });
 
   const option = {
+    grid: { top: 30, right: 60, bottom: 24, left: 36 },
+
     xAxis: {
       type: "category",
       data: alcoholCategories,
