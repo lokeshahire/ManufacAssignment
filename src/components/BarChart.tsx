@@ -1,7 +1,7 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 import wineData from "./wineData.json";
-
+import "./Chart.css";
 interface ChartProps {
   option: any;
 }
@@ -16,13 +16,11 @@ const Chart: React.FC<ChartProps> = ({ option }) => {
 };
 
 export const BarChart: React.FC = () => {
-  const alcoholCategories = Array.from(
-    new Set(wineData.map((e: any) => e.Alcohol))
-  );
-  const minMagnesiumValues = alcoholCategories.map((alcohol: string) => {
-    const alcoholData = wineData.filter((e: any) => e.Alcohol === alcohol);
-    const magnesiumValues = alcoholData.map((e: any) => e.Magnesium);
-    return Math.min(...magnesiumValues);
+  const alcoholData = Array.from(new Set(wineData.map((e: any) => e.Alcohol)));
+  const minMagValues = alcoholData.map((alcohol: string) => {
+    const data = wineData.filter((e: any) => e.Alcohol === alcohol);
+    const magValues = data.map((e: any) => e.Magnesium);
+    return Math.min(...magValues);
   });
 
   const option = {
@@ -30,7 +28,7 @@ export const BarChart: React.FC = () => {
 
     xAxis: {
       type: "category",
-      data: alcoholCategories,
+      data: alcoholData,
       name: "Alcohol",
     },
     yAxis: {
@@ -40,10 +38,14 @@ export const BarChart: React.FC = () => {
     series: [
       {
         type: "bar",
-        data: minMagnesiumValues,
+        data: minMagValues,
       },
     ],
   };
 
-  return <ReactECharts option={option} />;
+  return (
+    <div className="chart-container">
+      <Chart option={option} />
+    </div>
+  );
 };

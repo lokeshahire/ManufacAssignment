@@ -1,6 +1,7 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 import wineData from "./wineData.json";
+import "./Chart.css";
 
 interface ChartProps {
   option: any;
@@ -36,5 +37,9 @@ export const LineChart: React.FC = () => {
     ],
   };
 
-  return <ReactECharts option={option} />;
+  return (
+    <div className="chart-container">
+      <Chart option={option} />
+    </div>
+  );
 };
