@@ -37,4 +37,11 @@ I have implement a Line chart and Bar chart using React and ECharts
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
+### Languages/Libraries/Tools used : 
+
+1. TypeScript
+2. React via CRA
+4. ECharts for React
+
+
 Thank You :)
