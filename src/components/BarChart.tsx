@@ -17,15 +17,15 @@ const Chart: React.FC<ChartProps> = ({ option }) => {
 
 export const BarChart: React.FC = () => {
   const alcoholCategories = Array.from(
-    new Set(wineData.map((d: any) => d.Alcohol))
+    new Set(wineData.map((e: any) => e.Alcohol))
   );
   const minMagnesiumValues = alcoholCategories.map((alcohol: string) => {
-    const alcoholData = wineData.filter((d: any) => d.Alcohol === alcohol);
-    const magnesiumValues = alcoholData.map((d: any) => d.Magnesium);
+    const alcoholData = wineData.filter((e: any) => e.Alcohol === alcohol);
+    const magnesiumValues = alcoholData.map((e: any) => e.Magnesium);
     return Math.min(...magnesiumValues);
   });
 
-  const options = {
+  const option = {
     xAxis: {
       type: "category",
       data: alcoholCategories,
@@ -43,5 +43,5 @@ export const BarChart: React.FC = () => {
     ],
   };
 
-  return <ReactECharts option={options} />;
+  return <ReactECharts option={option} />;
 };

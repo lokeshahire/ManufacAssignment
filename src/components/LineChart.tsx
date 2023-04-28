@@ -16,7 +16,7 @@ const Chart: React.FC<ChartProps> = ({ option }) => {
 };
 
 export const LineChart: React.FC = () => {
-  const options = {
+  const option = {
     xAxis: {
       name: "Flavanoids",
       type: "category",
@@ -35,5 +35,5 @@ export const LineChart: React.FC = () => {
     ],
   };
 
-  return <ReactECharts option={options} />;
+  return <ReactECharts option={option} />;
 };
